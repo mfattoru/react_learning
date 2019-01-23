@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+
 import Person from './Person/Person';
 
 class App extends Component {
@@ -35,13 +36,24 @@ class App extends Component {
 	}
 
 	render() {
+		const style = {
+			backgroundColor: 'white',
+			font: 'inherit',
+			border: '1px solid blue',
+			padding: '8px',
+			cursor: 'pointer'
+		};
+
 		return (
 			<div className="App">
 				<h1> Hi, I'm a React app</h1>
 				<p>This is working</p>
-				<button onClick={this.switchNameHandler.bind(this,'Mike')}>Switch Name</button>
+				<button style={style}
+					onClick={this.switchNameHandler.bind(this,'Mike')}>Switch Name</button>
 				{/* Alternative to bind to pass a value to the function,but might be less efficient */}
-				<button onClick={() => this.switchNameHandler('SuperMike')}>Switch Name</button>
+				{/* <button 
+					style={style}
+					onClick={() => this.switchNameHandler('SuperMike')}>Switch Name</button> */}
 
 				<Person 
 					name={this.state.persons[0].name} 
